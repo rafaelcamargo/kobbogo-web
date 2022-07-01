@@ -20,6 +20,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '^.+\\.html$': 'html-loader-jest'
+    '^.+\\.html$': 'html-loader-jest',
+    '^.+\\.(css|styl|png|jpe?g|gif|svg)$': '<rootDir>/src/base/mocks/raw-files.js',
   }
 };

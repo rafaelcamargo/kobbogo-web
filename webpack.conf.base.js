@@ -20,6 +20,13 @@ module.exports = {
         include: [`${__dirname}/${project.source.root}`],
         use: 'html-loader'
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name]-[contenthash].[ext]',
+        },
+      },
     ]
   },
   resolve: {
