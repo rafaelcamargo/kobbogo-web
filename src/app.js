@@ -1,3 +1,4 @@
+import '@glorious/taslonic/taslonic.css'
 import { createApp } from 'vue'
 import { router } from '@src/router';
 import analyticsService from '@src/base/services/analytics/analytics';

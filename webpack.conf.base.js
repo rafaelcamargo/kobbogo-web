@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const project = require('./project.json');
 const env = process.env.NODE_ENV || 'development';
@@ -21,6 +22,14 @@ module.exports = {
         use: 'html-loader'
       },
       {
+        test: /\.css$/,
+        use: [ MiniCssExtractPlugin.loader, 'css-loader' ]
+      },
+      {
+        test: /\.styl$/,
+        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader' ]
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)$/i,
         loader: 'file-loader',
         options: {
@@ -32,6 +41,7 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm-bundler.js',
+      'vue\/dist\/vue.common$': 'vue/dist/vue.esm-bundler.js',
       '@environment$': `${__dirname}/${project.source.environments.root}/${env}.js`,
       '@src': `${__dirname}/${project.source.root}`
     }
@@ -45,6 +55,9 @@ module.exports = {
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false
+    }),
+    new MiniCssExtractPlugin({
+      filename: project.dist.styles.filename[env]
     })
   ]
 }
