@@ -22,7 +22,7 @@ describe('App', () => {
   it('should render homepage on initialize', done => {
     app.init();
     setTimeout(() => {
-      expect(document.querySelector('h1').textContent).toEqual('Hello World');
+      expect(document.querySelector('h1').textContent).toEqual('The simplest todo list ever made');
       done();
     });
   });
