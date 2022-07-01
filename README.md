@@ -1,6 +1,9 @@
 # Kobbogo Web
 > The simplest todo list ever made
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/rafaelcamargo/kobbogo-web/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/rafaelcamargo/kobbogo-web/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/rafaelcamargo/kobbogo-web/badge.svg?branch=master)](https://coveralls.io/github/rafaelcamargo/kobbogo-web?branch=master)
+
 
 ## Contributing
 
