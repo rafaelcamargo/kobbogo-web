@@ -1,17 +1,29 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from '@src/home/home';
 import routes from '@src/routes';
-import { home } from '@src/home/home';
 
-export const router = createRouter({
-  history: createWebHistory(),
-  routes: routes.map(route => ({
-    ...route,
-    component: getViewComponentByViewName(route.name)
-  }))
-});
+export const Router = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {routes.map(route => buildRouteElement(route))}
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-function getViewComponentByViewName(name){
-  return {
-    home
-  }[name];
+function buildRouteElement({ path, name }){
+  const Component = getViewComponentByRouteName(name);
+  return (
+    <Route
+      path={path}
+      element={<Component />}
+      key={name}
+    />
+  );
+}
+
+function getViewComponentByRouteName(name){
+  return { home: Home }[name];
 }

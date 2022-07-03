@@ -1,14 +1,19 @@
-import { tContainer, tRow, tCol } from '@glorious/taslonic/vue';
-import { logo } from '@src/base/components/logo/logo';
-import template from './home.html';
+import { Container, Row, Col } from '@glorious/taslonic/react';
+import { Logo } from '@src/base/components/logo/logo';
 
-export const home = {
-  name: 'home',
-  components: {
-    tContainer,
-    tRow,
-    tCol,
-    logo
-  },
-  template
+export const Home = () => {
+  return (
+    <Container>
+      <Row offsetXs="10">
+        <Col alignXs="center">
+          <Logo />
+        </Col>
+      </Row>
+      <Row>
+        <Col alignXs="center">
+          <h1>The simplest todo list ever made</h1>
+        </Col>
+      </Row>
+    </Container>
+  );
 };

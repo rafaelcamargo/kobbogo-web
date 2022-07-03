@@ -1,5 +1,4 @@
 {
-  "parser": "@babel/eslint-parser",
   "env": {
     "browser": true,
     "es6": true,
@@ -7,12 +6,15 @@
     "node": true
   },
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "requireConfigFile": false
+    "ecmaFeatures": {
+      "jsx": true
+    },
   },
   "rules": {
     "indent": ["error", 2],
@@ -22,9 +24,10 @@
     "semi": ["error", "always"],
     "complexity": ["error", { "max": 3 }],
     "max-lines": ["error", { "max": 100 }],
-    "max-statements": ["error", { "max": 5 },
-      { "ignoreTopLevelFunctions": true }
-    ]
+    "max-statements": ["error", { "max": 5 }, { "ignoreTopLevelFunctions": true }],
+    "react/prop-types": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "overrides": [
     {
@@ -36,5 +39,10 @@
         ]
       }
     }
-  ]
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }

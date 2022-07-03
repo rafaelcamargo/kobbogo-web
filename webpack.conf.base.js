@@ -40,8 +40,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm-bundler.js',
-      'vue\/dist\/vue.common$': 'vue/dist/vue.esm-bundler.js',
       '@environment$': `${__dirname}/${project.source.environments.root}/${env}.js`,
       '@src': `${__dirname}/${project.source.root}`
     }
@@ -51,10 +49,6 @@ module.exports = {
       template: project.source.index.file,
       favicon: project.source.favicon.file,
       minify: { collapseWhitespace: true }
-    }),
-    new webpack.DefinePlugin({
-      __VUE_OPTIONS_API__: true,
-      __VUE_PROD_DEVTOOLS__: false
     }),
     new MiniCssExtractPlugin({
       filename: project.dist.styles.filename[env]
